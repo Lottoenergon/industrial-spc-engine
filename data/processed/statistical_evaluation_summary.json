@@ -1,0 +1,290 @@
+{
+  "overall_test": {
+    "pre_reject_rate": 0.058499796167957606,
+    "post_reject_rate": 0.04744445899349657,
+    "delta_pct": -18.898078110768584,
+    "pre_avg_batch_rate": 0.07558309618472446,
+    "post_avg_batch_rate": 0.05657205287413931,
+    "z_score_naive": 3.2431288497281554,
+    "p_value_naive": 0.001182247320176133,
+    "statistically_significant": true,
+    "laney_adjusted": {
+      "sigma_z_used": 2.6169099985572806,
+      "z": 1.239297053210127,
+      "p_value": 0.21523550961259375,
+      "ci_diff_pp": [
+        -0.6429139856946597,
+        2.8539814205868668
+      ],
+      "method": "pooled-SE two-proportion CI, SE inflated by mean phase sigma_z",
+      "sigma_z_range_within_day_order": {
+        "Pre-Intervention": [
+          2.1357139762149897,
+          2.429237580723319,
+          2.7212587714792256
+        ],
+        "Post-Intervention": [
+          2.3528899383224227,
+          2.516672290903207,
+          2.683092784086395
+        ]
+      },
+      "p_value_most_favorable": 0.14844380346716357
+    },
+    "batch_level": {
+      "n_batches_pre": 25,
+      "n_batches_post": 90,
+      "mannwhitney_p": 0.038295276989158064,
+      "welch_p": 0.17971099154714917,
+      "boot_ci_diff_pp": [
+        -0.25657635167094145,
+        2.658629917461599
+      ],
+      "boot_share_diff_le_0": 0.0602,
+      "ci_excludes_zero": false
+    }
+  },
+  "sku_6_90_test": {
+    "pre_reject_rate": 0.10771113831089352,
+    "post_reject_rate": 0.051524879614767254,
+    "pre_avg_batch_rate": 0.12155956800827784,
+    "post_avg_batch_rate": 0.05042357259076662,
+    "delta_pct": -52.16383335765359,
+    "z_score_naive": 6.458133580727852,
+    "p_value_naive": 1.0600209598976562e-10,
+    "batch_level": {
+      "n_batches_pre": 8,
+      "n_batches_post": 31,
+      "mannwhitney_p": 0.0029406371742186892,
+      "welch_p": 0.03710391681209441,
+      "boot_ci_diff_pp": [
+        2.9487372161719345,
+        8.72076246071616
+      ],
+      "boot_share_diff_le_0": 0.0,
+      "ci_excludes_zero": true
+    },
+    "robust_significant": true,
+    "pre_pcs": 817,
+    "post_pcs": 6230
+  },
+  "sku_8_90_test": {
+    "pre_reject_rate": 0.043933761405880366,
+    "post_reject_rate": 0.029122867482336723,
+    "pre_avg_batch_rate": 0.041156030428808804,
+    "post_avg_batch_rate": 0.02940184577715336,
+    "delta_pct": -33.71187316905049,
+    "z_score_naive": 3.6114690653785257,
+    "p_value_naive": 0.0003044674063412689,
+    "batch_level": {
+      "n_batches_pre": 11,
+      "n_batches_post": 20,
+      "mannwhitney_p": 0.036959393481157204,
+      "welch_p": 0.2112176821262589,
+      "boot_ci_diff_pp": [
+        -0.2396780130856361,
+        3.0466724719449942
+      ],
+      "boot_share_diff_le_0": 0.0492,
+      "ci_excludes_zero": false
+    },
+    "robust_significant": false,
+    "pre_pcs": 2959,
+    "post_pcs": 5803
+  },
+  "windows": {
+    "pre": {
+      "first": "2026-01-14",
+      "last": "2026-03-31",
+      "batches": 25,
+      "pcs": 4906,
+      "months_span": 3,
+      "months_with_data": 2
+    },
+    "post": {
+      "first": "2026-04-01",
+      "last": "2026-09-03",
+      "batches": 90,
+      "pcs": 22911,
+      "months_span": 6,
+      "months_with_data": 6
+    }
+  },
+  "copq_normalized": {
+    "unit_cost_idr": 45000,
+    "unit_cost_is_assumption": true,
+    "pre_total_idr": 12915000,
+    "post_total_idr": 48915000,
+    "pre_cost_per_pc_produced": 2632.490827558092,
+    "post_cost_per_pc_produced": 2135.000654707346,
+    "saving_per_pc_produced": 497.49017285074615,
+    "change_pct": -18.89807811076857
+  },
+  "density_capability": {
+    "pre_intervention": {
+      "sample_size": 802,
+      "mean": 241.70199501246884,
+      "std": 13.24444984494848,
+      "cp": 0.6291943743145904,
+      "cpu": 0.712197821699233,
+      "cpl": 0.5461909269299478,
+      "cpk": 0.5461909269299478,
+      "pct_below_lsl": 6.109725685785536,
+      "pct_above_usl": 0.0,
+      "normal_pred_pct_below_lsl": 5.065113247807768,
+      "normal_pred_pct_above_usl": 1.6315535800926713,
+      "min": 200.0,
+      "max": 270.0,
+      "n_at_min": 1,
+      "n_at_max": 4,
+      "skew": -0.3691333904572661,
+      "normaltest_p": 8.331816302856079e-05
+    },
+    "post_intervention": {
+      "sample_size": 3712,
+      "mean": 241.92834051724137,
+      "std": 13.151634552324454,
+      "cp": 0.6336348003116067,
+      "cpu": 0.7114872140309275,
+      "cpl": 0.555782386592286,
+      "cpk": 0.555782386592286,
+      "pct_below_lsl": 2.720905172413793,
+      "pct_above_usl": 0.0,
+      "normal_pred_pct_below_lsl": 4.772269714342766,
+      "normal_pred_pct_above_usl": 1.6402505166642471,
+      "min": 200.0,
+      "max": 270.0,
+      "n_at_min": 4,
+      "n_at_max": 30,
+      "skew": -0.07785393089222527,
+      "normaltest_p": 1.9799351838418406e-15
+    }
+  },
+  "spc_laney_parameters": {
+    "sigma_z_pre": 2.5732612726308615,
+    "sigma_z_post": 2.6605587244836997,
+    "pre_center_line": 0.058499796167957606,
+    "post_center_line": 0.04744445899349657,
+    "standard_ooc_pre": 3,
+    "standard_ooc_post": 13,
+    "laney_ooc_pre": 0,
+    "laney_ooc_post": 2,
+    "below_lcl_laney_total": 0,
+    "run_rule_signals_pre": 0,
+    "run_rule_signals_post": 0,
+    "run_rule_length": 8,
+    "rolling_window": 5,
+    "laney_alarms": [
+      {
+        "batch_id": "BATCH-20260401-016",
+        "date": "2026-04-01",
+        "size": "3\" 65",
+        "total_pcs": 184,
+        "reject_pcs": 38,
+        "reject_rate": 0.20652173913043478,
+        "defect_category": "Keropos & Rapuh (Friability)"
+      },
+      {
+        "batch_id": "BATCH-20260624-031",
+        "date": "2026-06-24",
+        "size": "6\" 30",
+        "total_pcs": 48,
+        "reject_pcs": 16,
+        "reject_rate": 0.3333333333333333,
+        "defect_category": "Crack Tengah (Thermal/Drying Stress)"
+      }
+    ]
+  },
+  "monthly": [
+    {
+      "month": "2026-01",
+      "batches": 1,
+      "pcs": 174,
+      "rejects": 6,
+      "rate": 0.034482758620689655,
+      "ci_lo": 0.0,
+      "ci_hi": 0.1357485206752037,
+      "phase": "Pre-Intervention"
+    },
+    {
+      "month": "2026-02",
+      "batches": 0,
+      "pcs": 0,
+      "rejects": 0,
+      "rate": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "phase": null
+    },
+    {
+      "month": "2026-03",
+      "batches": 24,
+      "pcs": 4732,
+      "rejects": 281,
+      "rate": 0.05938292476754015,
+      "ci_lo": 0.04267840606268947,
+      "ci_hi": 0.07795810442121026,
+      "phase": "Pre-Intervention"
+    },
+    {
+      "month": "2026-04",
+      "batches": 47,
+      "pcs": 11346,
+      "rejects": 451,
+      "rate": 0.039749691521240964,
+      "ci_lo": 0.03074243943173341,
+      "ci_hi": 0.049572276971655935,
+      "phase": "Post-Intervention"
+    },
+    {
+      "month": "2026-05",
+      "batches": 28,
+      "pcs": 6084,
+      "rejects": 311,
+      "rate": 0.05111768573307035,
+      "ci_lo": 0.037362101930003055,
+      "ci_hi": 0.06635578787967926,
+      "phase": "Post-Intervention"
+    },
+    {
+      "month": "2026-06",
+      "batches": 4,
+      "pcs": 582,
+      "rejects": 62,
+      "rate": 0.10652920962199312,
+      "ci_lo": 0.047555835558393725,
+      "ci_hi": 0.17900660812795943,
+      "phase": "Post-Intervention"
+    },
+    {
+      "month": "2026-07",
+      "batches": 7,
+      "pcs": 2279,
+      "rejects": 124,
+      "rate": 0.05440982887231242,
+      "ci_lo": 0.03194327225410354,
+      "ci_hi": 0.0808009434690309,
+      "phase": "Post-Intervention"
+    },
+    {
+      "month": "2026-08",
+      "batches": 3,
+      "pcs": 1900,
+      "rejects": 99,
+      "rate": 0.05210526315789474,
+      "ci_lo": 0.02823886732059296,
+      "ci_hi": 0.0807018216163878,
+      "phase": "Post-Intervention"
+    },
+    {
+      "month": "2026-09",
+      "batches": 1,
+      "pcs": 720,
+      "rejects": 40,
+      "rate": 0.05555555555555555,
+      "ci_lo": 0.017624968941931052,
+      "ci_hi": 0.10583153369677713,
+      "phase": "Post-Intervention"
+    }
+  ]
+}
