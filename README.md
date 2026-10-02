@@ -13,7 +13,7 @@ The project applies **Laney p'-Control Charts (correcting for overdispersion)**,
 
 ## 1. Executive Summary & Observed Production Impact
 
-Evaluation Boundary: On 1 April 2026 (marking Q2 operational reviews), shop-floor directives adjusted target slurry density upward to counteract product friability, accompanied by a marked increase in facility throughput. The evaluation compares **Period 1 (Baseline: Jan–Mar 2026)** against **Period 2 (Post-Intervention: Apr–Sep 2026)**.
+Evaluation Boundary: On 1 April 2026 (marking Q2 operational reviews), shop-floor directives targeted an upward adjustment in slurry density to counteract product friability, accompanied by a marked increase in facility throughput. Recorded box densities show no shift after the change (see Section 6.3 for discussion of data capping and aggregation). The evaluation compares **Period 1 (Baseline: Jan–Mar 2026)** against **Period 2 (Post-Intervention: Apr–Sep 2026)**.
 
 | Metric | Baseline | Post | Change | Evidence |
 |---|---|---|---|---|
@@ -73,9 +73,9 @@ In molded perlite thermal insulation manufacturing:
 
 ### A. Statistical Process Control: Laney p'-Chart (Facility Overview)
 ![Pipe Cover Laney p-Chart](dashboard/pipe_cover_laney_spc_chart.png)
-* **Overdispersion Correction:** The standard binomial model would trigger 13 false alarms. Adjusting for overdispersion (baseline sigma_z = 2.57, post sigma_z = 2.66) widens the control limits to match natural batch-to-batch variation.
-* **True Assignable Causes:** Only 2 batches breach the upper Laney control limit (UCL p'): Batch 3" 65 (20.7% reject, n=184) and Batch 6" 30 (33.3% reject, n=48).
-* **Run Rule Evaluation:** Checking for 8 consecutive points above the center line yielded **0 signals** in both phases, confirming the absence of sustained one-sided process shifts.
+* **Overdispersion Correction:** Standard binomial control limits are breached by 16 batches across the series (3 baseline, 13 post-intervention). Of these 16 breaches, 14 do not exceed the Laney limits (matching the legend markers), highlighting the degree to which binomial limits over-signal in the presence of batch-to-batch variation (sigma_z: baseline 2.57, post 2.66).
+* **Candidate Special Causes:** Only 2 batches breach the upper Laney control limit (UCL p'): Batch 3" 65 (20.7% reject, n=184) and Batch 6" 30 (33.3% reject, n=48). Their underlying root causes remain unverified hypotheses.
+* **Run Rule Evaluation:** Checking for 8 consecutive points above the center line yielded **0 signals** in both phases (note that the 8-batch rule has low statistical power on this short, unevenly spaced series; monthly aggregation reveals June spiked to 10.7% across 4 batches).
 
 ### B. SKU-Stratified Control Charts (6" 90 & 8" 90)
 ![SKU Stratified Charts](dashboard/pipe_cover_laney_by_sku.png)
@@ -92,12 +92,16 @@ In molded perlite thermal insulation manufacturing:
 * Evaluates 4,514 box-level bulk density readings (802 baseline, 3,712 post-intervention).
 * **Process Centering:** Baseline mean (241.70 kg/m3) and post mean (241.93 kg/m3) are nearly identical.
 * **Capability Indices:** Cp = 0.63 and Cpk = 0.55 (baseline) vs. Cp = 0.63 and Cpk = 0.56 (post). Natural process variation (6-sigma ≈ 79 kg/m3) exceeds the 50 kg/m3 specification spread.
-* **Data Truncation Warning:** Observations terminate exactly at 200.0 and 270.0 kg/m3 with zero readings beyond spec, indicating artificial boundary clipping during data entry.
+* **Data Truncation Warning:** Zero readings exceed 270 kg/m3 despite fitted normal predictions of ~1.5%, consistent with capping at 270 kg/m3 (34 readings sit exactly at 270.0 kg/m3: 4 baseline, 30 post). In contrast, readings at the lower bound of 200 kg/m3 are sparse (5 total: 1 baseline, 4 post), showing that boundary piling is heavily concentrated at the upper specification.
 
 ### E. Aligned Pareto Defect Analysis (Pre vs. Post)
 ![Pareto Failure Modes](dashboard/pipe_cover_pareto_anonymized.png)
-* Baseline scrap was dominated by *Keropos & Rapuh* (67.6%) and *Excess Density* notes (21.95%).
-* Post-intervention defect distribution shows reduction in friability notes on mature runs.
+* **Defect Shift & Apparent Trade-offs:** Tracking reject rates per 100 manufactured pieces reveals a critical dynamic:
+  * **Friability (*Keropos & Rapuh*):** dropped from **3.95 to 2.30 pcs/100** (-42% reduction, -1.65 percentage points).
+  * **Excess Density:** dropped from **1.28 to 1.01 pcs/100** (-21% reduction, -0.27 pp).
+  * **Thermal/Drying Cracks (*Crack Tengah*):** increased from **0.61 to 1.07 pcs/100** (+75% increase, +0.46 pp).
+  * **Dimensional/Thickness:** increased from **0.00 to 0.34 pcs/100** (newly appearing failure mode, +0.34 pp).
+* **Key Analytic Insight:** The net facility reject drop of 1.11 percentage points (5.85% -> 4.74%) was entirely driven by the reduction in friability (-1.65 pp), but approximately 0.8 pp of these gains were eroded by rising crack rates and dimensional defects. This suggests an operational trade-off (e.g. denser/harder packing mitigating friability but exacerbating thermal curing stress and mold fit) that warrants formal investigation.
 
 ---
 
@@ -118,7 +122,7 @@ The pipeline compiles clean metrics into SQLite (`data/processed/industrial_qc.d
 2. **Extreme Calendar & Throughput Clustering:** 
    - Baseline: 24 of 25 batches are concentrated in March 2026 (January has 1 batch, February has none).
    - Post-Intervention: 75 of 90 batches are clustered in April (47) and May (28), with only 15 batches spread across June through September.
-   - Plant throughput expanded by +367%, confounding intervention effects with potential scale economies and SKU mix changes.
+   - Total production volume was 4.7x larger in a monitoring window that was twice as long (calendar throughput increased from ~1,635 to ~3,818 pcs/month, ~+133%), confounding intervention effects with scale, operational cadence, and SKU mix changes.
 3. **Density Measurement Truncation & Lack of Distribution Shift:** 
    - Recorded densities show severe artificial truncation at 200.0 and 270.0 kg/m3.
    - Mean and standard deviation are virtually unchanged (Cpk 0.55 vs 0.56), showing no empirical evidence that slurry density distribution shifted.
