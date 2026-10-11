@@ -4,6 +4,34 @@ venv/
 ENV/
 env/
 
+# Environment files (SECRETS - never commit)
+.env
+.env.*
+.env.local
+.env.*.local
+*.env
+*.env.*
+
+# Secrets, Credentials & Tokens
+*credential*.json
+*credentials*.json
+*service_account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_rsa.pub
+token.json
+tokens.json
+secrets.json
+secret.json
+client_secret*.json
+
+# Local config & overrides
+config.local.*
+settings.local.*
+
 # Python cache
 __pycache__/
 *.py[cod]
